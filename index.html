@@ -2,6 +2,7 @@
 <html lang="en">
    <head>
       <title>isabel zhong</title>
+      <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
       <link rel="stylesheet" href="styles.css">
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,19 +51,34 @@
             <div class="mySlides fade">
             <div class="numbertext">1 / 3</div>
             <img src="assets/nuarchcad.png" alt="model of weber arch">
-            <div class="text"><a href="https://grabcad.com/library/northwestern-weber-arch-1" target=”_blank” style="color:black;">weber arch model</a></div>
+            <div class="text popup" onclick="popup()">weber arch model
+               <span class="popuptext">
+                  <p>created on fusion360 as a scaled proportional model of northwestern's weber arch</p>
+                  <a href="https://grabcad.com/library/northwestern-weber-arch-1" target=”_blank” style="color:black;">model on grabcad</a>
+               </span>
+            </div>
             </div>
          
             <div class="mySlides fade">
             <div class="numbertext">2 / 3</div>
             <img src="assets/perlinnoise.gif" alt="simulation gif showing a PN flow field">
-            <div class="text"><a href="https://github.com/izo0619/perlin-noise-flow-field" target=”_blank”>perlin noise flow field sim</a></div>
+            <div class="text popup" onclick="popup()" style="color:white;">perlin noise flow field sim
+               <span class="popuptext">
+                  <p>simulating particle flow in a vector field with perlin noise using p5.js</p>
+                  <a href="https://github.com/izo0619/perlin-noise-flow-field" target=”_blank” style="color:black;">github repo</a>
+               </span>
+            </div>
             </div>
          
             <div class="mySlides fade">
             <div class="numbertext">3 / 3</div>
             <img src="assets/camandfollower.png" alt="CAD model rendering of cam and follower">
-            <div class="text" ><a href="https://grabcad.com/library/cam-follower-32" target=”_blank” style="color:black;">cam and follower</a></div>
+            <div class="text popup" onclick="popup()">cam and follower
+               <span class="popuptext">
+                  <p>created on fusion360 as an assembly of a cam and follower, which turns rotational motion into linear motion</p>
+                  <a href="https://grabcad.com/library/cam-follower-32" target=”_blank” style="color:black;">model on grabcad</a>
+               </span>
+            </div>
             </div>
          
             <!-- Next and previous buttons -->
@@ -93,10 +109,14 @@
       
       function plusSlides(n) {
         showSlides(slideIndex += n);
+        let popups = document.getElementsByClassName("popuptext");
+         Array.from(popups).forEach(p => p.classList.remove("show"));
       }
       
       function currentSlide(n) {
         showSlides(slideIndex = n);
+        let popups = document.getElementsByClassName("popuptext");
+         Array.from(popups).forEach(p => p.classList.remove("show"));
       }
       
       function showSlides(n) {
@@ -113,6 +133,11 @@
         }
         slides[slideIndex-1].style.display = "block";  
         dots[slideIndex-1].className += " active";
+      }
+
+      function popup() {
+         let popups = document.getElementsByClassName("popuptext");
+         Array.from(popups).forEach(p => p.classList.toggle("show"));
       }
       </script>
 </html>
