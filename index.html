@@ -54,6 +54,7 @@
             <div class="text popup" onclick="popup()">weber arch model
                <span class="popuptext">
                   <p>created on fusion360 as a scaled proportional model of northwestern's weber arch</p>
+                  <img src="assets/weberarch.jpeg">
                   <a href="https://grabcad.com/library/northwestern-weber-arch-1" target=”_blank” style="color:black;">model on grabcad</a>
                </span>
             </div>
@@ -65,6 +66,7 @@
             <div class="text popup" onclick="popup()" style="color:white;">perlin noise flow field sim
                <span class="popuptext">
                   <p>simulating particle flow in a vector field with perlin noise using p5.js</p>
+                  <img src="assets/perlinnoise.png">
                   <a href="https://github.com/izo0619/perlin-noise-flow-field" target=”_blank” style="color:black;">github repo</a>
                </span>
             </div>
@@ -76,6 +78,7 @@
             <div class="text popup" onclick="popup()">cam and follower
                <span class="popuptext">
                   <p>created on fusion360 as an assembly of a cam and follower, which turns rotational motion into linear motion</p>
+                  <img src="assets/cfdiagram.gif">
                   <a href="https://grabcad.com/library/cam-follower-32" target=”_blank” style="color:black;">model on grabcad</a>
                </span>
             </div>
@@ -139,5 +142,14 @@
          let popups = document.getElementsByClassName("popuptext");
          Array.from(popups).forEach(p => p.classList.toggle("show"));
       }
+
+      document.addEventListener('click', function(event) {
+         let popups = Array.from(document.getElementsByClassName("popup"));
+         const outsideClick = !popups.includes(event.target);
+         if (outsideClick){
+            let pu = document.getElementsByClassName("popuptext");
+            Array.from(pu).forEach(p => p.classList.remove("show"));
+         }
+      });
       </script>
 </html>
